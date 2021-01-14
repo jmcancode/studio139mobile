@@ -10,6 +10,7 @@ import {
 
 import { SectionGrid } from "react-native-super-grid";
 import { useTheme } from "@react-navigation/native";
+import { Alert } from "react-native";
 const { width, height } = Dimensions.get("window") / 0.75;
 // const windowWidth = Dimensions.get('window').width;
 // const windowHeight = Dimensions.get('window').height;
@@ -86,7 +87,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Single Breast Navy Blue Suit",
       price: "$980.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "EXCLUSIVE TO STUDIO 139",
       id: "8",
     },
     {
@@ -94,7 +95,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Single Breast Grey Suit",
       price: "$980.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "EXCLUSIVE TO STUDIO 139",
       id: "9",
     },
     {
@@ -102,7 +103,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Zegna Tuxedo",
       price: "$1,980.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "EXCLUSIVE TO STUDIO 139",
       id: "10",
     },
     {
@@ -110,7 +111,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Loro Pina Dinner Jacket",
       price: "$980.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "EXCLUSIVE TO STUDIO 139",
       id: "11",
     },
     {
@@ -126,7 +127,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "White T-Shirt",
       price: "$58.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "DESIGNED BY STUDIO 139",
       id: "13",
     },
     {
@@ -134,7 +135,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Denim Chore Coat",
       price: "$298.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "DESIGNED BY STUDIO 139",
       id: "14",
     },
     {
@@ -142,7 +143,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "5-pocket Denim",
       price: "$198.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "DESIGNED BY STUDIO 139",
       id: "15",
     },
     {
@@ -150,7 +151,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Cotton Blazer",
       price: "$298.00",
       code: "transparent",
-      availability: "EDITORS CHOICE",
+      availability: "DESIGNED BY STUDIO 139",
       id: "16",
     },
     {
@@ -158,7 +159,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Unlined Wool Blazer",
       price: "$298.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "DESIGNED BY STUDIO 139",
       id: "17",
     },
     {
@@ -166,7 +167,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Track Suit",
       price: "$298.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "DESIGNED BY STUDIO 139",
       id: "18",
     },
     {
@@ -174,7 +175,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "Jake Sneakers",
       price: "$198.00",
       code: "transparent",
-      availability: "HOME BRAND",
+      availability: "DESIGNED BY STUDIO 139",
       id: "19",
     },
     {
@@ -182,7 +183,7 @@ const ShopAll = ({ navigation }) => {
       subtitle: "139 x SBJM Loafers",
       price: "$298.00",
       code: "transparent",
-      availability: "EXCLUSIVE",
+      availability: "DESIGNED BY STUDIO 139",
       id: "20",
     },
   ]);
@@ -192,7 +193,7 @@ const ShopAll = ({ navigation }) => {
       itemDimension={120}
       fixed
       spacing={10}
-      // style={{ color: colors.text }}
+      style={{ color: colors.text }}
       sections={[
         {
           title: "STYLE BY JM",
@@ -210,30 +211,49 @@ const ShopAll = ({ navigation }) => {
       style={[styles.gridView, { color: colors.text }]}
       renderItem={({ item }) => (
         <View ref={viewRef}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.push("ShopDetail");
-            }}
-          >
-            <Text style={[styles.itemName, { color: colors.text }]}>
+          <TouchableOpacity onPress={() => navigation.navigate("StyleByJM")}>
+            <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
+              style={[styles.itemName, { color: colors.text }]}
+              onPress={() => item.id}
+            >
               {item.name}
             </Text>
-            <Text style={[styles.itemCode, { color: colors.text }]}>
+            <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
+              style={[styles.itemCode, { color: colors.text }]}
+            >
               {item.subtitle}
             </Text>
-            <Text style={[styles.itemPrice, { color: colors.text }]}>
+            <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
+              style={[styles.itemPrice, { color: colors.text }]}
+            >
               {item.price}
             </Text>
-            <Text style={[styles.itemCode, { color: colors.text }]}>
+            <Text
+              adjustsFontSizeToFit
+              numberOfLines={1}
+              style={[styles.itemCode, { color: colors.text }]}
+            >
               {item.availability}
             </Text>
           </TouchableOpacity>
         </View>
       )}
       renderSectionHeader={({ section }) => (
-        <Text style={[styles.sectionHeader, { color: colors.text }]}>
-          {section.title}
-        </Text>
+        <TouchableOpacity onPress={() => {}}>
+          <Text
+            adjustsFontSizeToFit
+            numberOfLines={1}
+            style={styles.sectionHeader}
+          >
+            {section.title}
+          </Text>
+        </TouchableOpacity>
       )}
     />
   );
@@ -267,7 +287,8 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 15,
     fontWeight: "700",
-
+    color: "#fff",
+    backgroundColor: "#d3d3d3",
     padding: 5,
     paddingLeft: 5,
   },

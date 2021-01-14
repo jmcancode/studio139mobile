@@ -13,7 +13,7 @@
     "@freakycoder/react-native-bounceable": "^0.2.4",
     "@freakycoder/react-native-header-view": "^1.1.1",
     "@freakycoder/react-native-helpers": "^1.0.1",
-    "@gorhom/bottom-sheet": "^3.1.0",
+    "@gorhom/bottom-sheet": "^3.1.1",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.11.2",
@@ -35,7 +35,7 @@
     "react-native-credit-card-input": "^0.4.1",
     "react-native-date-picker": "^3.2.7",
     "react-native-elements": "^3.1.0",
-    "react-native-gesture-handler": "^1.8.0",
+    "react-native-gesture-handler": "^1.9.0",
     "react-native-gorgeous-header": "^0.1.0",
     "react-native-modern-header": "^0.1.0",
     "react-native-onboarding-swiper": "^1.1.4",
@@ -43,13 +43,17 @@
     "react-native-profile-header": "^0.1.1",
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "3.1.9",
-    "react-native-screens": "^2.15.0",
+    "react-native-screens": "~2.15.0",
     "react-native-super-grid": "^4.0.3",
     "react-native-web": "~0.13.12",
-    "react-navigation": "^4.4.3"
+    "react-navigation": "^4.4.3",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "^7.12.10"
   },
   "private": true
 }

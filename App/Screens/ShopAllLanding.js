@@ -33,7 +33,7 @@ const ShopLanding = ({ navigation }) => {
           <Button
             mode="text"
             onPress={() => {
-              navigation.navigate("ShopAll");
+              navigation.navigate("TheRoyalGuard");
             }}
             color={colors.text}
           >
@@ -44,7 +44,7 @@ const ShopLanding = ({ navigation }) => {
           <Button
             mode="text"
             onPress={() => {
-              navigation.navigate("ShopAll");
+              navigation.navigate("StudioOne");
             }}
             color={colors.text}
           >

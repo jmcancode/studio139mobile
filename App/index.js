@@ -7,6 +7,7 @@ import {
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+// import { createDrawerNavigator } from "@react-navigation/drawer";
 // react native paper
 import {
   Provider as PaperProvider,
@@ -34,6 +35,10 @@ import ShopLanding from "./Screens/ShopAllLanding";
 import Discover from "./Screens/DiscoverScreen";
 import DiscoverDetail from "./Screens/DiscoverDetailsScreen";
 import Search from "./Screens/SearchScreen";
+//Shop Screens
+import StyleByJm from "../App/Screens/Brands/sbjm";
+import StudioOne from "../App/Screens/Brands/139";
+import TheRoyalGuard from "../App/Screens/Brands/trg";
 // Bottom Sheets
 import Modal from "./Screens/Modal";
 import ShoppingModal from "./Screens/ShoppingModal";
@@ -49,7 +54,12 @@ import {
   PlayfairDisplay_400Regular,
   PlayfairDisplay_500Medium,
 } from "@expo-google-fonts/playfair-display";
+// redux
+// import {createStore} from 'redux';
+// import {Provider} from 'react-reudx';
+// const store = createStore()
 
+// const Drawer = createDrawerNavigator();
 const Tabs = createBottomTabNavigator();
 const AuthStack = createStackNavigator();
 const HomeStack = createStackNavigator();
@@ -168,6 +178,36 @@ const ShopStackScreen = ({ navigation }) => (
     <ShopStack.Screen
       name="ShopDetail"
       component={ShopDetail}
+      options={{
+        headerTransparent: true,
+        headerTitle: null,
+        headerBackTitleVisible: "false",
+        headerLeft: null,
+      }}
+    />
+    <ShopStack.Screen
+      name="StyleByJM"
+      component={StyleByJm}
+      options={{
+        headerTransparent: true,
+        headerTitle: null,
+        headerBackTitleVisible: "false",
+        headerLeft: null,
+      }}
+    />
+    <ShopStack.Screen
+      name="TheRoyalGuard"
+      component={TheRoyalGuard}
+      options={{
+        headerTransparent: true,
+        headerTitle: null,
+        headerBackTitleVisible: "false",
+        headerLeft: null,
+      }}
+    />
+    <ShopStack.Screen
+      name="StudioOne"
+      component={StudioOne}
       options={{
         headerTransparent: true,
         headerTitle: null,
