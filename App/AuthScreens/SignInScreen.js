@@ -266,7 +266,9 @@ const SignInScreen = ({ navigation }) => {
               Continue as a Guest
             </Text>
           </TouchableOpacity>
+          
         </View>
+        
       </Animatable.View>
     </View>
   );

@@ -6,9 +6,11 @@ import {
   Dimensions,
   View,
   Text,
+  Alert,
   StatusBar,
+  TouchableOpacity
 } from "react-native";
-import { Button } from "react-native-paper";
+import { Button, Divider } from "react-native-paper";
 const { width } = Dimensions.get("screen").width;
 
 const StudioOne = () => {
@@ -33,7 +35,14 @@ const StudioOne = () => {
           </Text>
         </View>
       </View>
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          height: 50,
+          paddingTop: 10
+        }}
+      >
         <Button
           color="#1f1f1f"
           mode="text"
@@ -51,6 +60,34 @@ const StudioOne = () => {
           Sort by
         </Button>
       </View>
+      <Divider />
+      <View
+      style={{
+        flex: 1,
+        width: 190,
+        height: 250,
+        // borderColor: "#777",
+        // borderRadius: 5,
+        // borderWidth: 1,
+        margin: 5,
+        marginTop: 25,
+        justifyContent: "flex-end",
+      }}
+    >
+      <TouchableOpacity onPress={() => Alert.alert("Product Page")}>
+        <Image source={require("../../../assets/images/crocskin.jpg")} style={{resizeMode:"cover", height: 214, width: 190, borderRadius: 5 }}/>
+        <Text
+          adjustsFontSizeToFit
+          numberOfLines={1}
+          style={styles.producttitle}
+        >
+          Product title
+        </Text>
+        <Text adjustsFontSizeToFit numberOfLines={1} style={styles.cost}>
+          $399.00
+        </Text>
+      </TouchableOpacity>
+    </View>
     </ScrollView>
   );
 };
@@ -78,6 +115,19 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingTop: 10,
     color: "#777",
+  },
+  cost: {
+    paddingLeft: 10,
+  },
+  producttitle: {
+    textTransform: "uppercase",
+    paddingLeft: 10,
+    paddingTop: 10,
+  },
+  productdescription: {
+    textTransform: "uppercase",
+    paddingLeft: 10,
+    paddingTop: 10,
   },
 });
 

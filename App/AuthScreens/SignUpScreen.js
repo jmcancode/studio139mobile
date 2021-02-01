@@ -2,9 +2,7 @@ import React from "react";
 import {
   View,
   Text,
-  Button,
   TouchableOpacity,
-  Dimensions,
   TextInput,
   Platform,
   StyleSheet,
@@ -16,15 +14,29 @@ import { useTheme } from "@react-navigation/native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Feather from "react-native-vector-icons/Feather";
 
+import { auth } from "../../firebase";
+
 const SignUpScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
-    username: "",
+    email: "",
     password: "",
-    confirm_password: "",
     check_textInputChange: false,
     secureTextEntry: true,
     confirm_secureTextEntry: true,
   });
+
+  const register = () => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        authUser.user.updateProfile({
+          displayName: name,
+        });
+      })
+      .catch((error) => alert(error.message));
+  };
+
   const { colors } = useTheme();
 
   const textInputChange = (val) => {
@@ -82,12 +94,12 @@ const SignUpScreen = ({ navigation }) => {
       <Animatable.View animation="fadeInUpBig" style={styles.footer}>
         <ScrollView>
           <Text style={[styles.text_footer, { color: colors.text }]}>
-            Username
+            Email
           </Text>
           <View style={styles.action}>
             <FontAwesome name="user-o" color={colors.text} size={20} />
             <TextInput
-              placeholder="Your Username"
+              placeholder="Enter your email"
               style={styles.textInput}
               autoCapitalize="none"
               onChangeText={(val) => textInputChange(val)}
@@ -113,7 +125,7 @@ const SignUpScreen = ({ navigation }) => {
           <View style={styles.action}>
             <Feather name="lock" color={colors.text} size={20} />
             <TextInput
-              placeholder="Your Password"
+              placeholder="Enter your password"
               secureTextEntry={data.secureTextEntry ? true : false}
               style={styles.textInput}
               autoCapitalize="none"
@@ -128,34 +140,6 @@ const SignUpScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
 
-          <Text
-            style={[
-              styles.text_footer,
-              {
-                marginTop: 35,
-                color: colors.text,
-              },
-            ]}
-          >
-            Confirm Password
-          </Text>
-          <View style={styles.action}>
-            <Feather name="lock" color={colors.text} size={20} />
-            <TextInput
-              placeholder="Confirm Your Password"
-              secureTextEntry={data.confirm_secureTextEntry ? true : false}
-              style={styles.textInput}
-              autoCapitalize="none"
-              onChangeText={(val) => handleConfirmPasswordChange(val)}
-            />
-            <TouchableOpacity onPress={updateConfirmSecureTextEntry}>
-              {data.secureTextEntry ? (
-                <Feather name="eye-off" color="grey" size={20} />
-              ) : (
-                <Feather name="eye" color="grey" size={20} />
-              )}
-            </TouchableOpacity>
-          </View>
           <View style={styles.textPrivate}>
             <Text style={styles.color_textPrivate}>
               By signing up you agree to our
@@ -173,7 +157,9 @@ const SignUpScreen = ({ navigation }) => {
           <View style={styles.button}>
             <TouchableOpacity
               style={[styles.signIn, { color: colors.text }]}
-              onPress={() => {}}
+              onPress={() => {
+                register;
+              }}
             >
               <Text
                 style={[

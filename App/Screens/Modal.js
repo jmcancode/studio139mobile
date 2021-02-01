@@ -13,6 +13,20 @@ import { List, Switch, TouchableRipple, Text } from "react-native-paper";
 // auth context
 import { AuthContext } from "../context";
 import { useTheme } from "@react-navigation/native";
+import { Alert } from "react-native";
+
+import { auth } from "../../firebase";
+
+const Spacer = () => <View style={{ height: 25 }} />;
+
+const signOutUser = ({ navigation }) => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      navigation.navigate("Login");
+    });
+};
 
 export const Modal = ({ navigation }) => {
   const theme = useTheme();
@@ -35,20 +49,43 @@ export const Modal = ({ navigation }) => {
         <View style={{ paddingTop: 5 }}>
           <List.Section>
             <List.Subheader>ORDER DETAILS</List.Subheader>
-            <List.Item title="Wish List" />
-            <List.Item title="My Orders" />
-            <List.Item title="Tracking" />
+            <TouchableOpacity onPress={() => navigation.navigate("ShopAll")}>
+              <List.Item title="Wish List" />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <List.Item title="My Orders" />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <List.Item title="Tracking" />
+            </TouchableOpacity>
           </List.Section>
           <List.Section>
             <List.Subheader>VIRTUAL STYLIST</List.Subheader>
-            <List.Item title="Find a Tailor" />
-            <List.Item title="Style Profile" />
-            <List.Item title="Schedule a Stylist" />
+            <TouchableOpacity onPress={() => navigation.navigate("Maps")}>
+              <List.Item title="Find a Tailor" />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <List.Item title="Style Profile" />
+            </TouchableOpacity>
           </List.Section>
           <List.Section>
             <List.Subheader>SETTINGS</List.Subheader>
-            <List.Item title="Account Details" />
+            <TouchableOpacity>
+              <List.Item title="Account Details" />
+            </TouchableOpacity>
           </List.Section>
+          <List.Section>
+            <List.Subheader>CUSTOMER SERVICE</List.Subheader>
+            <TouchableOpacity onPress={() => Alert.alert("Chatbot Screens")}>
+              <List.Item title="How can we help?" />
+            </TouchableOpacity>
+          </List.Section>
+          <List.Section>
+            <TouchableOpacity onPress={signOutUser}>
+              <List.Item title="Sign Out" />
+            </TouchableOpacity>
+          </List.Section>
+          <Spacer />
           <TouchableRipple
             onPress={() => {
               toggleTheme();

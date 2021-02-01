@@ -43,7 +43,7 @@ import TheRoyalGuard from "../App/Screens/Brands/trg";
 import Modal from "./Screens/Modal";
 import ShoppingModal from "./Screens/ShoppingModal";
 import CreditEdit from "./Screens/Checkout/creditcard";
-
+import Maps from "./Screens/Modal/MapScreen";
 // google fonts
 import {
   useFonts,
@@ -387,6 +387,11 @@ const RootStackScreen = ({ userToken, navigation }) => (
       name="ShopModal"
       component={ShoppingModal}
       options={{ animationEnabled: true, headerTitle: "Your Bag" }}
+    />
+    <RootStack.Screen
+      name="Maps"
+      component={Maps}
+      options={{ headerTransparent: true, headerTitle: null }}
     />
   </RootStack.Navigator>
 );

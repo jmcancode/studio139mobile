@@ -1,14 +1,14 @@
 import React from "react";
-import { Image, View, StyleSheet } from "react-native";
+import { View, StyleSheet, ActivityIndicator } from "react-native";
+// import firebase from "../../firebase"
 
-const ScreenContainer = ({ children }) => (
-  <View style={styles.container}>{children}</View>
-);
+
+
 
 const Splash = () => (
-  <ScreenContainer>
-    <Image source={require("../../assets/splash.png")} />
-  </ScreenContainer>
+  <View style={styles.container}>
+    <ActivityIndicator size="large" />
+  </View>
 );
 
 const styles = StyleSheet.create({

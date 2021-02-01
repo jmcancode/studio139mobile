@@ -207,6 +207,14 @@ const ShopAll = ({ navigation }) => {
           title: "139",
           data: items.slice(12, 20),
         },
+        {
+          title: "The II",
+          data: items.slice(12, 20),
+        },
+        {
+          title: "SCBATRON",
+          data: items.slice(12, 20),
+        },
       ]}
       style={[styles.gridView, { color: colors.text }]}
       renderItem={({ item }) => (
