@@ -49,30 +49,30 @@ const OnboardingScreen = ({ navigation }) => {
       onDone={() => navigation.navigate("SignUp")}
       pages={[
         {
-          backgroundColor: "#303030",
+          backgroundColor: "#d3d3d3",
           image: <Image source={require("../../assets/test.png")} />,
-          title: "SHOP WITH CONFIDENCE",
+          title: "PREMIUM MENSWEAR",
           titleStyles: { fontWeight: "bold", color: "#f5f5f5" },
           subtitle: "Hand-chosen products from trusted brands.",
           subTitleStyles: { color: "#f5f5f5" },
         },
         {
-          backgroundColor: "#2b2b2b",
+          backgroundColor: "#3f3f3f",
           image: <Image source={require("../../assets/test.png")} />,
-          title: "Lifestyle",
+          title: "TIMELESS SELECTION",
           titleStyles: { fontWeight: "bold", color: "#ffffff" },
           subtitle:
             "Learn tricks of the trade from style pros in JM's Journal.",
           subTitleStyles: { color: "#ffffff" },
         },
         {
-          backgroundColor: "#1f1f1f1f",
+          backgroundColor: "#151515",
           image: <Image source={require("../../assets/test.png")} />,
-          title: "Personal Profile",
-          titleStyles: { fontWeight: "bold", color: "#777777" },
+          title: "TAILORED PROFILES",
+          titleStyles: { fontWeight: "bold", color: "#f5f5f5" },
           subtitle:
             "Where timless style meets strategy. Build the wardrobe of your dreams with our stylist program.",
-          subTitleStyles: { color: "#777777" },
+          subTitleStyles: { color: "#f5f5f5" },
         },
       ]}
     />

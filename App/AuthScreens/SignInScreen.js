@@ -116,7 +116,7 @@ const SignInScreen = ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.background} barStyle="light-content" />
       <View style={styles.header}>
-        <Text style={[styles.text_header, { color: colors.text }]}>
+        <Text style={[styles.text_header, { color: "#d3d3d3" }]}>
           STUDIO 139
         </Text>
       </View>
@@ -266,9 +266,7 @@ const SignInScreen = ({ navigation }) => {
               Continue as a Guest
             </Text>
           </TouchableOpacity>
-          
         </View>
-        
       </Animatable.View>
     </View>
   );
@@ -279,7 +277,7 @@ export default SignInScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#3f3f3f",
   },
   header: {
     flex: 1,

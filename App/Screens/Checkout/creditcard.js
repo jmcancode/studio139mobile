@@ -4,7 +4,9 @@ import {
   CreditCardInput,
   LiteCreditCardInput,
 } from "react-native-credit-card-input"; // 0.4.1
+// import createStripe from "stripe-client";
 
+// const stripe = createStripe("pk_live_aKmLtnUBlTx1h5svA93dUVqF");
 const s = StyleSheet.create({
   switch: {
     alignSelf: "center",
@@ -27,7 +29,6 @@ const s = StyleSheet.create({
 
 export default class CreditEdit extends Component {
   state = { useLiteCreditCardInput: false };
-
   _onChange = (formData) => console.log(JSON.stringify(formData, null, " "));
   _onFocus = (field) => console.log("focusing", field);
   _setUseLiteCreditCardInput = (useLiteCreditCardInput) =>
@@ -37,7 +38,7 @@ export default class CreditEdit extends Component {
     return (
       <View style={s.container}>
         <Switch
-          style={s.switch}
+          style={s.switch} 
           onValueChange={this._setUseLiteCreditCardInput}
           value={this.state.useLiteCreditCardInput}
         />
@@ -46,7 +47,7 @@ export default class CreditEdit extends Component {
           <LiteCreditCardInput
             autoFocus
             inputStyle={s.input}
-            cardImageFront={require("../../../assets/Image_005.png")}
+            cardImageFront={require("../../../assets/images/lifestyle.jpg")}
             validColor={"black"}
             invalidColor={"red"}
             placeholderColor={"darkgray"}

@@ -7,7 +7,6 @@ import {
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-// import { createDrawerNavigator } from "@react-navigation/drawer";
 // react native paper
 import {
   Provider as PaperProvider,
@@ -44,6 +43,9 @@ import Modal from "./Screens/Modal";
 import ShoppingModal from "./Screens/ShoppingModal";
 import CreditEdit from "./Screens/Checkout/creditcard";
 import Maps from "./Screens/Modal/MapScreen";
+//modal screens
+import StyleProfile from "./Screens/Modal/StyleProfile";
+
 // google fonts
 import {
   useFonts,
@@ -270,7 +272,7 @@ const DiscoverStackScreen = ({ navigation }) => (
   </DiscoverStack.Navigator>
 );
 
-const ProfileStackScreen = ({ navigaiton }) => (
+const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
     <ProfileStack.Screen
       name="ACCOUNT"
@@ -391,7 +393,20 @@ const RootStackScreen = ({ userToken, navigation }) => (
     <RootStack.Screen
       name="Maps"
       component={Maps}
-      options={{ headerTransparent: true, headerTitle: null }}
+      options={{
+        headerTransparent: true,
+        headerBackTitle: "back",
+        HeaderTitle: "Find a Tailor",
+      }}
+    />
+    <RootStack.Screen
+      name="StyleProfile"
+      component={StyleProfile}
+      options={{
+        headerTransparent: true,
+        headerBackTitle: "back",
+        headerTitle: "Style Profile",
+      }}
     />
   </RootStack.Navigator>
 );

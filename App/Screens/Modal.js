@@ -52,10 +52,14 @@ export const Modal = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate("ShopAll")}>
               <List.Item title="Wish List" />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => Alert.alert("Order History Screen")}
+            >
               <List.Item title="My Orders" />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => Alert.alert("Order Tracking Screen")}
+            >
               <List.Item title="Tracking" />
             </TouchableOpacity>
           </List.Section>
@@ -64,13 +68,15 @@ export const Modal = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate("Maps")}>
               <List.Item title="Find a Tailor" />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("StyleProfile")}
+            >
               <List.Item title="Style Profile" />
             </TouchableOpacity>
           </List.Section>
           <List.Section>
-            <List.Subheader>SETTINGS</List.Subheader>
-            <TouchableOpacity>
+            <List.Subheader>ACCOUNT INFORMATION</List.Subheader>
+            <TouchableOpacity onPress={() => navigation.navigate("CreditEdit")}>
               <List.Item title="Account Details" />
             </TouchableOpacity>
           </List.Section>
@@ -81,7 +87,7 @@ export const Modal = ({ navigation }) => {
             </TouchableOpacity>
           </List.Section>
           <List.Section>
-            <TouchableOpacity onPress={signOutUser}>
+            <TouchableOpacity onPress={signOut}>
               <List.Item title="Sign Out" />
             </TouchableOpacity>
           </List.Section>

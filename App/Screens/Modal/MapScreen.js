@@ -1,20 +1,32 @@
 import * as React from "react";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 
 export default function Maps() {
   return (
     <View style={styles.container}>
       <MapView
-        mapType={"mutedStandard"}
+        mapType={"standard"}
         followsUserLocation={true}
         showsUserLocation={true}
         style={styles.map}
-        showsTraffic={true}
         zoomEnabled={true}
         pitchEnabled={true}
-        
-      />
+        initialRegion={{
+          latitude: 29.4241,
+          longitude: -98.4936,
+          latitudeDelta: 0.09,
+          longitudeDelta: 0.09,
+        }}
+        toolbarEnabled={true}
+        showsCompass={true}
+      >
+        <Marker
+          draggable
+          coordinate={{ latitude: 29.470761, longitude: -98.493257 }}
+          // onDragEnd{(e) => ({x: e.nativeEvent.coordinate})}
+        />
+      </MapView>
     </View>
   );
 }
